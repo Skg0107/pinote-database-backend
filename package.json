@@ -1,0 +1,26 @@
+{
+  "name": "database-backend",
+  "version": "1.0.0",
+  "description": "this repo is dedicated for mangaing database for pi note",
+  "homepage": "https://github.com/Skg0107/pinote-database-backend#readme",
+  "bugs": {
+    "url": "https://github.com/Skg0107/pinote-database-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skg0107/pinote-database-backend.git"
+  },
+  "license": "ISC",
+  "author": "Sarthak Kumar",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon script.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1"
+  }
+}
