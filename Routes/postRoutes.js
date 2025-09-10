@@ -12,6 +12,7 @@ router.post("/signup", async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
     await signUpService(name, email, password, confirmPassword);
     console.log("Data Saved Successfully");
+    res.status(200).json({ message: "Signup successful" });
   } catch (error) {
     console.log("Data Not Saved" + error);
   }
