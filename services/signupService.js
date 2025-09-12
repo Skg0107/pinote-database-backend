@@ -23,6 +23,14 @@ export const signUpService = async (
 export const isEmailRegistered = async (userEmail) => {
   const storedEmail = await users.findOne({ email: userEmail });
   if (storedEmail) {
+    return {
+      exists: true,
+      message:
+        "This email is already registered. Please login with your password.",
+    };
   }
-  throw new Error("this email is already registered, login with your password");
+  return {
+    exists: false,
+    message: "Email not found. Proceed with signup.",
+  };
 };
