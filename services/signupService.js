@@ -1,4 +1,4 @@
-import { users } from "../models/signupModel.js";
+import { users } from "../models/userModel.js";
 
 export const signUpService = async (
   userName,
@@ -18,4 +18,11 @@ export const signUpService = async (
   } catch (error) {
     console.log("signup unsuccessfull!");
   }
+};
+
+export const isEmailRegistered = async (userEmail) => {
+  const storedEmail = await users.findOne({ email: userEmail });
+  if (storedEmail) {
+  }
+  throw new Error("this email is already registered, login with your password");
 };
