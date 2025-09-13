@@ -1,9 +1,13 @@
 export const comparePassword = (enteredPassword, storedPassword) => {
-  return new Promise((resolve, reject) => {
-    if (enteredPassword == storedPassword) {
-      resolve(true);
-    } else {
-      reject(false);
-    }
-  });
+  if (enteredPassword !== storedPassword) {
+    return {
+      msg: "password not matched, please try again",
+      isPasswordMatch: false,
+    };
+  } else {
+    return {
+      msg: "password match",
+      isPasswordMatch: true,
+    };
+  }
 };

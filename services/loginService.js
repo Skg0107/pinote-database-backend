@@ -3,10 +3,24 @@ import { comparePassword } from "../utils/comparePassword.js";
 
 export const loginService = async (email, password) => {
   const user = await users.findOne({ email: email });
-  if (!user) throw new Error("user doesn't exist");
+  if (!user) {
+    return {
+      msg: "you are not sing in, visit signup page!",
+      inValid: true,
+    };
+  }
 
-  const isMatch = await comparePassword(password, user.password);
-  if (!isMatch) throw new Error("Invalid credintials");
+  const comparePasswordRes = comparePassword(password, user.password);
+  if (!comparePasswordRes.isPasswordMatch) {
+    return {
+      msg: comparePasswordRes.msg,
+      inValid: true,
+    };
+  }
 
-  return user;
+  return {
+    msg: "login successfully",
+    inValid: false,
+    userData: user,
+  };
 };
